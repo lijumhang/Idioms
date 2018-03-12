@@ -1,0 +1,28 @@
+﻿<Window x:Class="Idioms.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Idioms"
+        mc:Ignorable="d"
+        Title="Идиомы" Height="350" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Name="Previous" Command="{Binding GetPrevious}" Content="&lt;" FontSize="35" IsEnabled="{Binding PrevEnable}"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Name="IdiomText" Text="{Binding Text}" IsReadOnly="True" 
+                       TextAlignment="Center" FontSize="20"  TextWrapping="Wrap" VerticalContentAlignment="Center"/>
+            <Button Grid.Row="1" Name="ShowTranslate" Command="{Binding Show}" 
+                    Content="Перевод" Width="150" Height="40" FontSize="16"/>
+        </Grid>
+        <Button Grid.Column="2" Name="Next" Command="{Binding GetNext}" Content=">" FontSize="35" IsEnabled="{Binding NextEnable}"/>
+    </Grid>
+</Window>
