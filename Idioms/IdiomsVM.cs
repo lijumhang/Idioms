@@ -88,7 +88,7 @@ namespace Idioms
             PrevEnable = false;
             NextEnable = true;
 
-            using (SqlConnection db = new SqlConnection("Data Source=你的大哥-李军航;Initial Catalog=Idioms;Integrated Security=True"))
+            using (SqlConnection db = new SqlConnection(Properties.Settings.Default.ConnectionString))
             {
                 SqlCommand NewQuery = new SqlCommand("select Original, Translation from Idioms", db);
                 SqlDataReader reader;
